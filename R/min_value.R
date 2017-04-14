@@ -11,7 +11,7 @@
 #' @examples
 #' min_value(0:2) # 1
 min_value <- function(x) {
-  if (any(x<0))
+  if (any(x<0, na.rm=TRUE))
     stop("Negative values in x.")
 
   return(min(x[x>0], na.rm = TRUE))
