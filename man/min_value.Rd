@@ -22,4 +22,3 @@ min_value(0:2) # 1
 \seealso{
 \code{\link{ilog}}, \code{\link{iexp}}
 }
-

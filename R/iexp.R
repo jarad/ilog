@@ -16,7 +16,7 @@ iexp = function(x, value = NULL) {
   expx <- exp(x)
 
   if (is.null(value)) {
-    warning('Inferring value to subtract from smallest value in exp(x).')
+    warning('Inferring value to subtract from smallest value in exp(x). If the original x is negative, this will be incorrect.')
     value <- min(expx)
   }
 

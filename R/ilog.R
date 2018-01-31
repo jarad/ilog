@@ -12,20 +12,25 @@
 #' @seealso \code{\link{log}}, \code{\link{iexp}}, \code{\link{min_value}}
 #' @export
 #' @examples
-#' ilog(1:2)  # Returns log(1:2)
-#' ilog(-2:2) # Returns an error due to negative values
-#' ilog(0:2)  # Returns log(0:2+1)
+#' ilog(1:2)             # Returns log(1:2)
+#' ilog(-2:2)            # Returns an error due to negative values
+#' ilog(0:2)             # Returns log(0:2+1)
+#' ilog(-2:2, value = 3) # Returns log(-2:2 + 3)
 ilog = function(x, value = min_value(x), ...) {
   if (all(x > 0, na.rm = TRUE)) {
     warning('`x` is all positive. `value` was ignored and logs were taken.')
     return(log(x, ...))
   }
 
-  x <- x + value
+  xv <- x + value
 
-  if (any(x <= 0, na.rm = TRUE)) {
-    stop('Non-positive x+value values detected, please check `value`.')
+  if (any(x < 0, na.rm = TRUE)) {
+    if (any(xv <=0, na.rm = TRUE)) {
+      stop('Non-positive `x+value` values detected.')
+    } else {
+      warning('Negative `x` values detected, but all `x+value` are positive and therefore `log(x+value)` are return.')
+    }
   }
 
-  return(log(x, ...))
+  return(log(xv, ...))
 }

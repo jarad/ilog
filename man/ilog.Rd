@@ -23,11 +23,11 @@ observations before taking logarithms. By default, `value` is the minimum
 non-zero value.
 }
 \examples{
-ilog(1:2)  # Returns log(1:2)
-ilog(-2:2) # Returns an error due to negative values
-ilog(0:2)  # Returns log(0:2+1)
+ilog(1:2)             # Returns log(1:2)
+ilog(-2:2)            # Returns an error due to negative values
+ilog(0:2)             # Returns log(0:2+1)
+ilog(-2:2, value = 3) # Returns log(-2:2 + 3)
 }
 \seealso{
 \code{\link{log}}, \code{\link{iexp}}, \code{\link{min_value}}
 }
-

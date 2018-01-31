@@ -27,4 +27,3 @@ all.equal(iexp(ilog(x)), x) # TRUE
 \seealso{
 \code{\link{exp}},\code{\link{ilog}}, \code{\link{min_value}}
 }
-
